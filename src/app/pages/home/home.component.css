@@ -6,6 +6,10 @@
   width: 3rem;
 }
 
+.container-total {
+  gap: 1rem;
+}
+
 
 .info-product-container {
   gap: 1rem;

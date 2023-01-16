@@ -1,3 +1,4 @@
+import { Cupom } from './../../model/cupom';
 import { Product } from './../../model/product';
 import { Component, OnInit } from '@angular/core';
 import {
@@ -56,6 +57,10 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  cupons: Cupom[] = [
+    {cupom: 'desconto10', porcentagem: 10}
+  ];
+
   productFinded: Product[] = [];
 
   constructor() {}
@@ -86,7 +91,10 @@ export class HomeComponent implements OnInit {
   deleteFromCart(item: Product){
     const indexProduct = this.cartList.indexOf(item);
     this.cartList.splice(indexProduct, 1);
+    this.subTotal = 0;
+    this.total = 0;
     this.sumSubTotal();
+
   }
 
   changeAmount(changeAmount: any, item: Product){
@@ -112,6 +120,16 @@ export class HomeComponent implements OnInit {
     const itemAmountSum = itemsAmount.reduce((acc, atual) => (acc + atual));
 
     this.subTotal = itemPriceSum * itemAmountSum;
+  }
+
+  addCupom(cupomDesconto: any) {
+    this.cupons.filter((cupom) => {
+      let porCento = cupom.porcentagem / 100;
+      let porcentagem = this.subTotal * porCento;
+      let valorComDesconto = this.subTotal - porcentagem;
+      this.total = valorComDesconto;
+    });
+
   }
 
   //LOGICA DO POPUP

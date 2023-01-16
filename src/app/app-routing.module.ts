@@ -1,7 +1,13 @@
+import { FinalizadaComponent } from './pages/finalizada/finalizada.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '/finalizada',
+    component: FinalizadaComponent
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

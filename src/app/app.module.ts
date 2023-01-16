@@ -6,17 +6,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CarComponent } from './components/car/car.component';
 import { FormsModule } from '@angular/forms';
+import { FinalizadaComponent } from './pages/finalizada/finalizada.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarComponent
+    CarComponent,
+    FinalizadaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HomeModule,
-    FormsModule
+    FormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
