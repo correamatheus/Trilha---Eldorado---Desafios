@@ -1,16 +1,20 @@
 <nav class="navbar navbar-light bg-light mb-4">
   <div class="container d-flex">
     <span class="navbar-brand mb-0 h1">Desafio Cart Shop</span>
-    <span class="icon-cart" (click)="openPopup()">
-      <fa-icon [icon]="faCartShopping"></fa-icon><span style="font-weight: 700;">{{cartShopping}}</span>
-    </span>
+    <div class="d-flex container-search-icon">
+      <input type="text" [(ngModel)]="itemSearched" (input)="searchProduct()" class="input-search" placeholder="Pesquise o produto">
+      <span class="icon-cart" (click)="openPopup()">
+        <fa-icon [icon]="faCartShopping"></fa-icon><span style="font-weight: 700;">{{cartShopping}}</span>
+      </span>
+    </div>
+
   </div>
 
 </nav>
 
-<div class="container">
-  <input type="text" [(ngModel)]="itemSearched" (change)="searchProduct()">
-  <div class="row" *ngIf="productFinded.length > 0">
+<div class="container" *ngIf="productFinded.length > 0">
+  <p>Itens Encontrados: {{productFinded.length}}</p>
+  <div class="row" >
     <div class="col-md-3" *ngFor="let item of productFinded">
       <div class="card">
         <img class="card-img-top" [src]="item.image" alt="Card image cap" />
@@ -22,8 +26,8 @@
       </div>
     </div>
   </div>
+  <hr class="mt-2">
 </div>
-
 
 <div class="container">
   <div class="row">
@@ -56,11 +60,15 @@
           <div class="d-flex info-product flex-column">
             <h5 class="info-product-name">{{ item.name }}</h5>
             <p class="info-product-qtd">Quantidade</p>
-            <input class="infor-product-qtd-input" type="number" (input)="changeAmount($event, item)" value={{item.amount}}/>
+            <input class="infor-product-qtd-input" min="1" max="10" type="number"  (input)="changeAmount($event, item)" value={{item.amount}}/>
           </div>
           <span class="trash-icon" (click)="deleteFromCart(item)"><fa-icon [icon]="faTrash"></fa-icon></span>
         </div>
 
+      </div>
+      <div class="d-flex container flex-column">
+        <p>Subtotal: {{subTotal | currency}}</p>
+        <p>Total: </p>
       </div>
       <div class="modal-footer">
 

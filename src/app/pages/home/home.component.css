@@ -3,7 +3,7 @@
 }
 
 .infor-product-qtd-input {
-  width: 2rem;
+  width: 3rem;
 }
 
 
@@ -18,3 +18,14 @@
 .modal-footer {
   border: none;
 }
+
+.container-search-icon {
+  gap: 4rem;
+}
+
+.input-search {
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  padding-left: 1rem;
+}
+

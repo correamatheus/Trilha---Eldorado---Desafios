@@ -17,6 +17,8 @@ export class HomeComponent implements OnInit {
   faXmark = faXmark;
 
   itemSearched = "";
+  subTotal = 0;
+  total = 0;
   cartShopping = 0;
   cartList: Product[] = [];
   products: Product[] = [
@@ -77,23 +79,39 @@ export class HomeComponent implements OnInit {
       this.cartShopping = this.cartList.length;
     }
 
+    this.sumSubTotal();
+
   }
 
   deleteFromCart(item: Product){
     const indexProduct = this.cartList.indexOf(item);
     this.cartList.splice(indexProduct, 1);
+    this.sumSubTotal();
   }
 
   changeAmount(changeAmount: any, item: Product){
-    console.log(changeAmount.target.value);
+    const amount = Number(changeAmount.target.value);
     const isFinded = this.cartList.find(c => c.id === item.id);
-    isFinded!.amount += 1;
+    if(isFinded){
+      isFinded.amount = amount;
+    }
+    this.sumSubTotal();
   }
 
 
   searchProduct(){
     this.productFinded = this.products.filter((filtered) => filtered.name.toLowerCase().includes(this.itemSearched.toLowerCase()));
 
+  }
+
+  sumSubTotal(){
+    const itemsPrice = this.cartList.map((itemPrice) => itemPrice.price);
+    const itemPriceSum = itemsPrice.reduce((acc, atual) => (acc + atual));
+
+    const itemsAmount = this.cartList.map((itemAmount) => itemAmount.amount);
+    const itemAmountSum = itemsAmount.reduce((acc, atual) => (acc + atual));
+
+    this.subTotal = itemPriceSum * itemAmountSum;
   }
 
   //LOGICA DO POPUP
