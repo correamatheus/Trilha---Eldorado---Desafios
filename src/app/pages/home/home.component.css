@@ -1,0 +1,20 @@
+.product-img-cart{
+  max-width: 20%;
+}
+
+.infor-product-qtd-input {
+  width: 2rem;
+}
+
+
+.info-product-container {
+  gap: 1rem;
+}
+
+.icon-cart {
+  cursor: pointer;
+}
+
+.modal-footer {
+  border: none;
+}

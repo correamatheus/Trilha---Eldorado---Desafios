@@ -1,0 +1,58 @@
+<nav class="navbar navbar-light bg-light mb-4">
+  <div class="container d-flex">
+    <span class="navbar-brand mb-0 h1">Desafio Cart Shop</span>
+    <span class="icon-cart" (click)="openPopup()">
+      <fa-icon [icon]="faCartShopping"></fa-icon><span style="font-weight: 700;">{{cartShopping}}</span>
+    </span>
+  </div>
+
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3" *ngFor="let item of products">
+      <div class="card">
+        <img class="card-img-top" [src]="item.image" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.price | currency }}</p>
+          <a href="#" class="btn btn-primary" (click)="addToCart(item)" (click)="openPopup()">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Seu carrinho de compra</h4>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex info-product-container mt-3" *ngFor="let item of cartList">
+          <img class="card-img-top product-img-cart" [src]="item.image" alt="Card image cap" />
+          <div class="d-flex info-product flex-column">
+            <h5 class="info-product-name">{{ item.name }}</h5>
+            <p class="info-product-qtd">Quantidade</p>
+            <input class="infor-product-qtd-input" type="number" (input)="changeAmount($event, item)" value={{item.amount}}/>
+          </div>
+          <span class="trash-icon" (click)="deleteFromCart(item)"><fa-icon [icon]="faTrash"></fa-icon></span>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+
+        <button type="button" class="btn btn-primary"
+                (click)="closePopup()">
+                Continuar comprando
+        </button>
+
+        <button class="btn btn-success">Fechar pedido</button>
+      </div>
+    </div>
+  </div>
+</div>
