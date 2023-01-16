@@ -91,9 +91,13 @@ export class HomeComponent implements OnInit {
   deleteFromCart(item: Product){
     const indexProduct = this.cartList.indexOf(item);
     this.cartList.splice(indexProduct, 1);
-    this.subTotal = 0;
-    this.total = 0;
+    if (this.cartList.length === 0) {
+      this.total = 0;
+      this.subTotal = 0;
+    }
     this.sumSubTotal();
+
+
 
   }
 
@@ -130,6 +134,11 @@ export class HomeComponent implements OnInit {
       this.total = valorComDesconto;
     });
 
+  }
+
+  finishService() {
+    alert("Pedido Finalizado");
+    window.location.reload();
   }
 
   //LOGICA DO POPUP

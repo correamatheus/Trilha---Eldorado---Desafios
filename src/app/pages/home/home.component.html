@@ -79,7 +79,7 @@
                 Continuar comprando
         </button>
 
-        <button class="btn btn-success" [class.disabled]="cartList.length < 1" routerLink="/finalizada">Fechar pedido</button>
+        <button class="btn btn-success" [class.disabled]="cartList.length < 1" (click)="finishService()">Fechar pedido</button>
       </div>
     </div>
   </div>
