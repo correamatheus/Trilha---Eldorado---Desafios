@@ -1,6 +1,6 @@
 # Desafio - Cart Shop - Trilha Eldorado
 
-Cupom de desconto para aplicar no carrinho: **desconto10**
+### Cupom de desconto para aplicar no carrinho: **desconto10**
 
 O foco deste desafio era aplicar todo conhecimento de Angular aprendido durante a semana um do projeto.
 
