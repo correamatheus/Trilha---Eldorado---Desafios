@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   faTrash = faTrash;
   faXmark = faXmark;
 
+  itemSearched = "";
   cartShopping = 0;
   cartList: Product[] = [];
   products: Product[] = [
@@ -53,6 +54,8 @@ export class HomeComponent implements OnInit {
     },
   ];
 
+  productFinded: Product[] = [];
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -87,6 +90,11 @@ export class HomeComponent implements OnInit {
     isFinded!.amount += 1;
   }
 
+
+  searchProduct(){
+    this.productFinded = this.products.filter((filtered) => filtered.name.toLowerCase().includes(this.itemSearched.toLowerCase()));
+
+  }
 
   //LOGICA DO POPUP
   displayStyle = 'none';

@@ -7,6 +7,24 @@
   </div>
 
 </nav>
+
+<div class="container">
+  <input type="text" [(ngModel)]="itemSearched" (change)="searchProduct()">
+  <div class="row" *ngIf="productFinded.length > 0">
+    <div class="col-md-3" *ngFor="let item of productFinded">
+      <div class="card">
+        <img class="card-img-top" [src]="item.image" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.price | currency }}</p>
+          <a href="#" class="btn btn-primary" (click)="addToCart(item)" (click)="openPopup()">Add to cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="container">
   <div class="row">
     <div class="col-md-3" *ngFor="let item of products">
