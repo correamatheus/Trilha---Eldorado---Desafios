@@ -1,28 +1,15 @@
-# DesafioSemana1
+# Desafio - Cart Shop - Trilha Eldorado
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+Cupom de desconto para aplicar no carrinho: **desconto10**
 
-## Development server
+O foco deste desafio era aplicar todo conhecimento de Angular aprendido durante a semana um do projeto.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Abaixo segue o que foi pedido para ser entregue no desafio:
 
-## Code scaffolding
+**Para esta semana, você irá criar um carrinho de compras usando . Faça o mais funcional que puder, na tentativa de replicar os comportamentos de um carrinho de lojas virtuais:
+Adicione na tela 3 ou mais produtos que irão ser usados no carrinho
+Cada produto tem imagem, nome, preço e o botão de adicionar
+A quantidade poderá ser alterada após o produto ser adicionado no carrinho mas fique a vontade se desejar adicionar nessa parte também
+O carrinho terá uma lista de produtos onde terá o nome, preço e quantidade de cada produtoTambém precisa mostrar o  dos valores dos produtosPoderá ter o desconto adicionando através de um cupom (Este cupom é uma string que representa exatamente o valor de um desconto)Se seu carrinho tem desconto então precisa ter Sub-totalPreciso ter como excluir o produto do carrinho
+Qualquer comportamento ou funcionalidade fora dos descritos acima, serão considerados extras e ajudarão no seu destaque no curso.**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# Trilha---Eldorado---Desafios
